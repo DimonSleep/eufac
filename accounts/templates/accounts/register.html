@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<main class="offcanvas-enabled" style="padding-top: 5rem;">
+    <section class="ps-lg-4 pe-lg-3 pt-4">
+
+
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+            <article class="card-body">
+                {% include 'accounts/alert.html' %}
+                <header class="mb-4">
+                    <h4 class="card-title">Inregistrare</h4>
+                </header>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Numele</label>
+                            {{form.first_name}}
+                        </div> <!-- mb-3 end.// -->
+                        <div class="col mb-3">
+                            <label class="form-label">Prenumele</label>
+                            {{form.last_name}}
+                        </div> <!-- mb-3 end.// -->
+                    </div> <!-- row end.// -->
+
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Adresa de mail</label>
+                            {{form.email}}
+                            <small class="form-text text-muted">Nu spune nimarui mail-u tau</small>
+                        </div> <!-- mb-3 end.// -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Numarul de telefon</label>
+                            {{form.phone_number}}
+                        </div> <!-- mb-3 end.// -->
+                    </div> <!-- row.// -->
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Creaza parola</label>
+                            {{form.password}}
+                        </div> <!-- mb-3 end.// -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Repeta parola</label>
+                            {{form.confirm_password}}
+                        </div> <!-- mb-3 end.// -->
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary btn-block"> Inregistrare </button>
+                    </div> <!-- mb-3// -->
+                    {{form.email.errors}}
+                    {{form.non_field_errors}}
+                </form>
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+        <p class="text-center mt-4">Ai cont? <a href="{%url 'login'%}">Logare</a></p>
+        <br><br>
+
+
+    </section>
+
+</main>
+{% endblock content %}

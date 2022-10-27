@@ -1,0 +1,133 @@
+<div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
+				<div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
+					<h3 class="h4 pb-2">Scrie o recenzie</h3>
+
+					<form action="{%url 'submit_reviews' object.id%}" method="POST">
+						{% csrf_token %}
+						<div>
+							
+							<div class="mb-3">
+								<label class="form-label" for="subject">Titlu Recenzie
+									<span class="text-danger">*</span>
+								</label>
+								<input class="form-control" type="text" name="subject" id="subject">
+							</div>
+
+							
+							<div class="mb-3">
+								
+							</div>
+			
+							<br>
+							{% if user.is_authenticated %}
+							{% if orderproduct %}
+							<button class="btn btn-primary btn-shadow d-block w-100" type="submit">Submit a Review</button>
+							{%else%}
+							<p>Utilizatorul trebuie sa procure ceva pentru a crea o recenzie</p>
+			
+							{% endif %}
+
+							{%else%}
+							<p>Utilizatorul trebuie sa fie autentificat pentru a face o recenzie <span><a href="{%url 'login'%}">login</a></span>
+							</p>
+							{% endif %}
+			
+			
+						</div>
+						{% include "accounts/alert.html" %}
+					</form>
+
+					
+				</div>
+            </div>
+            
+                <style>
+                    .dropbtn {
+                        background-color: #ff6f6f;
+                        color: white;
+                        padding: 16px;
+                        font-size: 16px;
+                        border: none;
+                    }
+
+                    .dropdown {
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #f1f1f1;
+                        min-width: 160px;
+                        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                    }
+
+                    .dropdown-content a {
+                        color: black;
+                        padding: 12px 16px;
+                        text-decoration: none;
+                        display: block;
+                    }
+
+                    .dropdown-content a:hover {
+                        background-color: #ddd;
+                    }
+
+                    .dropdown:hover .dropdown-content {
+                        display: block;
+                    }
+
+                    .dropdown:hover .dropbtn {
+                        background-color: #ff6f6f;
+                    }
+                </style>
+
+                <div class="py-1 bg-mencat">
+                    <div class="container">
+                        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                            <div class="col-lg-12 d-block">
+                                <div class="row d-flex">
+
+                                    <div class="col-md pr-4 d-flex topper align-items-center ">
+                                        <img src={% static 'images/s1.svg' %} width="20" height="20"
+                                            alt="Fotolii birou">
+                                    </div>
+                                    <div class=" col-md pr-4 d-flex topper align-items-center ">
+                                        <img src={% static 'images/s.svg' %} width="20" height="20" alt="Scaune">
+                                    </div>
+                                    <div class="col-md pr-3 d-flex topper align-items-center">
+                                        <img src={% static 'images/f.svg' %} width="20" height="20" alt="Fotolii">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/c.svg' %} width="20" height="20" alt="Comoda">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/d.svg' %} width="20" height="20" alt="Dulapuri">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/mb.svg' %} width="20" height="20" alt="Masa birou">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/ca.svg' %} width="20" height="20" alt="Canapea">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/fo.svg' %} width="20" height="20" alt="Fotolii1">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/mc.svg' %} width="20" height="20"
+                                            alt="Masa pentru calculator">
+                                    </div>
+                                    <div class="col-md pr-4 d-flex topper align-items-center">
+                                        <img src={% static 'images/ms.svg' %} width="20" height="20" alt="Masa">
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

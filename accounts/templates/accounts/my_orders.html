@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<main class="offcanvas-enabled" style="padding-top: 5rem;">
+
+  <section class="ps-lg-4 pe-lg-3 pt-4">
+
+    <div class="container">
+        <div class="row">
+           {% include 'accounts/dashbord_sidebar.html' %}
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header">
+                <strong class="d-inline-block mr-3">Istoria comenzilor tale:</strong>
+              
+            </header>
+            <div class="card-body">
+                <div class="row"> 
+                     <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">Comanda #</th>
+                                <th scope="col">Numele de facturare</th>
+                                <th scope="col">Numarul de Telefon</th>
+                                <th scope="col">Comanda Totala</th>
+                                <th scope="col">Data</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders  %}
+                                  
+                               
+                              <tr>
+                                 <th scope="row"><a href="{%url 'order_detail' order.order_number%}">{{order.order_number}}</th></a>
+                                <td>{{order.full_name}}</td>
+                                <td>{{order.phone_number}}</td>
+                                <td>Rs. {{order.order_total}}</td>
+                                <td>{{order.created_at}}</td>
+                              </tr>
+                              {% endfor %}
+                            
+                            
+                            </tbody>
+                          </table>
+                       
+                    </div>
+                </div> <!-- row.// -->
+            </div> <!-- card-body .// -->
+          <!-- table-responsive .end// -->
+            </article> <!-- order-group.// --> 
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+    
+    
+<main/>
+
+    {% endblock content %}
